@@ -1,0 +1,58 @@
+/* playing cards ratio is 2.5:3.5 */
+
+/* SASS variable setup */
+$card-width: 250px;
+$card-height: 250px;
+$picture-width: 250px;
+$picture-height: 250px;
+
+.scene {
+  width: $card-width;
+  min-width: $card-width;
+  height: $card-height;
+  perspective: 600px;
+  margin: 10px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+/* Card mixin contains core styles so they can be used in muliple places without repitition */
+
+%card {
+  border: 4px solid black;
+  background-size: cover;
+  border-radius: 15px;
+  background-repeat: no-repeat, repeat;
+  position: absolute;
+  height: calc(100% - 16px);
+  width: calc(100% - 16px);
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+/* .cardFront utilises card mixin and adds additional property of background-image */
+.cardFront {
+  @extend %card;
+}
+
+.cardBack {
+  @extend %card;
+  transform: rotateY(180deg);
+}
+
+.cardRotated {
+  /* generates the card "flip" */
+  transform: rotateY(180deg);
+}
+
+.picture {
+  width: $picture-width;
+  height: $picture-height;
+  border: 2px solid black;
+}
