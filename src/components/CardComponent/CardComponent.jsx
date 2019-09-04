@@ -25,11 +25,12 @@ class CardComponent extends Component {
     return (
       <div className={styles.scene} onClick={this.handleClick}>
         <img
-          src={this.props.image}
-          alt={this.props.artist}
+          src={this.props.cardData.image}
+          alt={this.props.cardData.artist}
           className={styles.picture}
         />
       </div>
+
       // Add onClick calling seletCard fn in props
       //   <div
       //     className={styles.scene}
